@@ -1,0 +1,26 @@
+{
+  "interceptor_config": {
+    "version": "1.0.4",
+    "enforcement_mode": "strict",
+    "tenant_partition_map": {
+      "users_table": {
+        "partition_key": "tenant_id",
+        "index_optimization": "btree",
+        "strict_isolation": true
+      },
+      "billing_logs": {
+        "partition_key": "org_id",
+        "index_optimization": "brin",
+        "strict_isolation": true
+      },
+      "public_reference_data": {
+        "partition_key": null,
+        "strict_isolation": false
+      }
+    },
+    "alerting_thresholds": {
+      "max_query_latency_ms": 200,
+      "deny_cross_tenant_access": true
+    }
+  }
+}
